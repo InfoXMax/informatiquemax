@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Informatique Max</title>
+  <meta name="author" content="name">
+  <meta name="description" content="description here">
+  <link rel="icon" href="img/avatar.png" type="image/png">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Righteous|Ubuntu+Mono&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css" type="text/css">
+  <style>
+  /* Make sure the navbar is always on top */
+  nav.navbar {
+    position: relative;
+    z-index: 1050;
+  }
+
+  /* Force dropdowns to appear on top of everything */
+  .dropdown-menu {
+    z-index: 2000 !important;
+  }
+
+  /* Prevent image from overlapping dropdown */
+  .image {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Optional mobile spacing fix if dropdown is covered */
+  @media (max-width: 768px) {
+    .dropdown-menu {
+      position: absolute;
+    }
+  }
+</style>
+
+  </head>
+  <body>
+  <div id="particles-js"></div>
+  <div class="container">
+    <!-- This is navbar start -->
+     <nav class="navbar navbar-expand-lg navbar-light ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="https://blog.informatiquemax.com" target="_blank">Arabic Blog</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li> -->
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    CTFs Tools
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+    <li>
+      <a class="dropdown-item" href="https://lolbas-project.github.io/" target="_blank" rel="noopener noreferrer">
+        LOLBAS Project
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer">
+        CyberChef
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="https://www.revshells.com/" target="_blank" rel="noopener noreferrer">
+        RevShells
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="https://gtfobins.github.io/" target="_blank" rel="noopener noreferrer">
+        GTFOBins
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="https://swisskyrepo.github.io/PayloadsAllTheThings/" target="_blank" rel="noopener noreferrer">
+        PayloadAllTheThings
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="https://dnsdumpster.com/" target="_blank" rel="noopener noreferrer">
+        DnsDumpster
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="https://whois.domaintools.com/" target="_blank" rel="noopener noreferrer">
+        Whois Lookup
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="https://web-check.as93.net/" target="_blank" rel="noopener noreferrer">
+        Web Check
+      </a>
+    </li>
+  </ul>
+</li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+     <!-- This is navbar end -->
+    <div class="center">
+      <div class="row d-flex flex-wrap align-items-center">
+        <div class="col-md-5">
+          <img class="image img-fluid" src="img/logo.png" alt="0day">
+        </div>
+        <div class="col-md">
+          <p class="header1">Hello</p>
+          <p class="header3">Informatique Max</p>
+          <p class="header2"><span id="typing"></span></p>
+
+<script>
+  const phrases = ["This site is under construction", "Powered by Info X Max", "Launching soon", "Thanks for your patience"];
+  let i = 0, j = 0, current = [], isDeleting = false;
+
+  function loop() {
+    const text = document.getElementById("typing");
+    if (i < phrases.length) {
+      if (!isDeleting && j <= phrases[i].length) {
+        current.push(phrases[i][j++]);
+        text.textContent = current.join('');
+      } else if (isDeleting && j > 0) {
+        current.pop();
+        j--;
+        text.textContent = current.join('');
+      }
+
+      if (j === phrases[i].length) isDeleting = true;
+      if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % phrases.length;
+      }
+
+      setTimeout(loop, isDeleting ? 50 : 100);
+    }
+  }
+  loop();
+</script>
+
+          <a target="_blank" class="link1" href="https://instagram.com/infoxmax" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a target="_blank" class="link1" href="https://facebook.com/infoxmax" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fab fa-facebook"></i></a>
+	  <a  class="link1" href="#" data-toggle="tooltip" data-placement="bottom" title="InfoXMax#5995"><i class="fab fa-discord"></i></a>
+          <a target="_blank" class="link1" href="https://twitch.com/infoxmax" data-toggle="tooltip" data-placement="bottom" title="Twitch"><i class="fab fa-twitch"></i></a>
+          <a target="_blank" class="link1" href="https://www.linkedin.com/in/elhousseinetouhrache/" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i class="fab fa-linkedin"></i></a>
+          <a target="_blank" class="link1" href="https://github.com/infoxmax" data-toggle="tooltip" data-placement="bottom" title="Github"><i class="fab fa-github"></i></a>
+        </div>
+        <!-- <div class="w-100 d-flex justify-content-center mt-4">
+    <iframe 
+      src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=36074" 
+      style="border:none; width: 500px;">
+    </iframe>
+  </div> -->
+  
+      </div>
+      <br>
+      <br>
+      <footer class="text-center py-3" ;">
+  <p style="margin: 0;">Made with ❤️ by <a href="https://github.com/infoxmax" target="_blank" style="text-decoration: none; color: #000;">InfoXMax</a></p>
+</footer>
+
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  </body>
+</html>
